@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>trouver un mot</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="app.js" defer></script>
+</head>
+<body>
+    <h1>Trouver le mot</h1>
+    <p>Le but du jeu est de trouver le mot demandé</p>
+    <div class="choisirBoutons">
+        <h2>Choisir quels types de mots vous souhaitez chercher</h2>
+        <button class="categories" data-categorie='couleurs'>Mots de couleurs</button>
+        <button class="categories" data-categorie="animaux">Mots d'animaux</button>
+        <button class="categories" data-categorie="objets">Mots d'objets</button>
+    </div>
+    <div class="divLettreInput">
+        <label for="lettre">Entrez une lettre et si elle est dans le mot elle s'affichera </label>
+        <input id="lettre" type="text">
+        <button id="voir">voir</button>
+        
+    </div>
+
+</body>
+</html>

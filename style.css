@@ -1,0 +1,149 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+:root{
+    --fontFamilyTitre:'Pacifico', cursive;
+    --fontSizeTitre:calc(48px + 2vw);
+    --fontSiezParagraphe:calc(20px + 2vw);
+    --principalCouleur:white;
+    --fontSizeBouton:calc(12px + 1vw)
+    
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+    background-image:url('img/ciel.jpg');color:var(--principalCouleur);
+    background-size:cover;
+    padding:5%;
+}
+
+h1{
+    text-align:center;
+    font-family:var(--fontFamilyTitre);
+    font-size:var(--fontSizeTitre);
+    margin-bottom:20px;
+    
+    
+}
+
+p{
+    text-align:center;
+    font-style:italic;
+    font-size:var(--fontSiezParagraphe);
+    margin-bottom:20px;
+}
+
+h2{
+    text-align:center;
+    margin-bottom:20px;
+    font-size:var(--fontSiezParagraphe)
+}
+
+.choisirBoutons{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+.choisirBoutons button{
+    width:30%;
+    background:transparent;
+    border-radius:2px;
+    cursor:pointer;
+    color:var(--principalCouleur);
+    border:2px solid var(--principalCouleur);
+    padding:10px 20px;
+    margin-bottom:20px;
+    font-size:var(--fontSizeBouton);
+    position:relative;
+    z-index:3;
+    transition:color 0.3s;
+    overflow:hidden;
+}
+
+.choisirBoutonsActive{
+    background-color:burlywood !important;
+    color:black !important;
+    z-index:4;
+}
+
+.choisirBoutons button:before,
+.divLettreInputActive button:before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background-color:white;
+    transform:translate(-100% ,-100%);
+    z-index:-1;
+    transition:transform 0.5s;
+}
+
+.choisirBoutons button:after,
+.divLettreInputActive button:after{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background-color:burlywood;
+    transform:translate(100% ,100%);
+    z-index:-1;
+    transition:transform 0.5s
+}
+
+.choisirBoutons button:hover:before,
+.choisirBoutons button:hover:after,
+.divLettreInputActive button:hover:before,
+.divLettreInputActive button:hover:after{
+    transform:translate(0)
+}
+
+.choisirBoutons button:hover,
+.divLettreInputActive button:hover{
+    color:black;
+}
+
+.divLettreInput{
+    display:none;
+}
+
+.divLettreInputActive{
+    display:flex;
+    align-items:center;
+}
+
+.divLettreInputActive label{
+    font-size: var(--fontSizeBouton);
+}
+
+.divLettreInputActive input{
+    width:40px;
+    margin:0 5px;
+    height:50px;
+}
+
+.divLettreInputActive button{
+    cursor:pointer;
+    background:transparent;
+    font-size:var(--fontSizeBouton);
+    color:var(--principalCouleur);
+    padding:10px 20px;
+    position:relative;
+    z-index:3;
+    transition:color 0.3s;
+    overflow:hidden;
+}
+

@@ -147,3 +147,7 @@ h2{
     overflow:hidden;
 }
 
+#divCompteur{
+    margin-top:10px;
+    font-size:var(--fontSizeBouton)
+}

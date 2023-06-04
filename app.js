@@ -45,7 +45,7 @@ function choisirCategorie(e){
     let quelCategories=e.target.dataset.categorie;
     let tableau=choisirTableau(quelCategories);
     let motsAleatoires=recupererMotAleatoire(tableau);
-    alert(motsAleatoires)
+    // alert(motsAleatoires)
    
     let combienDeMots=compterLesMots(motsAleatoires);
     effacerH2()

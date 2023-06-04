@@ -42,7 +42,7 @@ function choisirCategorie(e){
     let quelCategories=e.target.dataset.categorie;
     let tableau=choisirTableau(quelCategories);
     let motsAleatoires=recupererMotAleatoire(tableau);
-    alert(motsAleatoires)
+    // alert(motsAleatoires)
    
     let combienDeMots=compterLesMots(motsAleatoires);
     effacerH2()
@@ -69,9 +69,6 @@ function choisirCategorie(e){
         // recupererIdCompteur
 
         
-
-
-       
        
         // compteurActuel=quiComptabiliseCompteur(compteurActuel)
         // alert(compteurActuel)
@@ -230,7 +227,7 @@ function faireDisparaitreAutresClasses(){
 }
 
 function creerDivCompteur(compteur){
-    alert(compteur)
+    // alert(compteur)
     const creationDivCompteur=document.createElement("div");
     const creationContenuCompteur=document.createTextNode(`Il vous reste ${compteur} tentatives`);
     creationDivCompteur.appendChild(creationContenuCompteur);

@@ -8,18 +8,21 @@ const body=document.querySelector('body')
 const nouvelleDiv=document.createElement('div');
 
 const inputSaisieParUtilisteur=document.getElementById("lettre")
-const divLettreInput=document.querySelector('.divLettreInput')
+const divLettreInput=document.querySelector('.divLettreInput');
+const choisirBoutons=document.querySelector('.choisirBoutons');
 
 // let compteur=10;
 let compteurGagner=0;
 
 const recupererBoutonVoir=document.getElementById('voir')
 
+
+
 // let recuperationInputUtilisateur=document.querySelectorAll('.inputsMots')
 
 const categories=document.querySelectorAll(".categories");
 categories.forEach((bouton)=>{
-    
+
     bouton.addEventListener('click',choisirCategorie);
     
   
@@ -28,7 +31,7 @@ categories.forEach((bouton)=>{
 function choisirCategorie(e){
    
 //    compteur=10;
-    // compteur=10;
+    let compteur=10;
     supprimerCreerDivCompteur()
     effacerPerdu()
     // let compteurFonction=quiInitialiseCompteur();
@@ -42,7 +45,7 @@ function choisirCategorie(e){
     let quelCategories=e.target.dataset.categorie;
     let tableau=choisirTableau(quelCategories);
     let motsAleatoires=recupererMotAleatoire(tableau);
-    // alert(motsAleatoires)
+    alert(motsAleatoires)
    
     let combienDeMots=compterLesMots(motsAleatoires);
     effacerH2()
@@ -50,7 +53,7 @@ function choisirCategorie(e){
     effacerElement();
     creationElement(combienDeMots);
 
-    let compteur=10;
+    
     // let compteurActuel=compteur;
     // alert(compteur)
   
@@ -67,9 +70,6 @@ function choisirCategorie(e){
        
         // compteurActuel--;
         // recupererIdCompteur
-
-        
-       
         // compteurActuel=quiComptabiliseCompteur(compteurActuel)
         // alert(compteurActuel)
         supprimerCreerDivCompteur()
@@ -84,8 +84,13 @@ function choisirCategorie(e){
             supprimerCreerDivCompteur()
             effacerH2();
             perduOuGagner('perdu');
+            setTimeout(function(){
+                window.location.reload();
+            },1500)
+            
+            // faireApparaitreBoutonsCategories()
            
-         
+           
         }
     
         
@@ -100,16 +105,19 @@ function choisirTableau(categorie){
         let recupererBouton1=document.querySelectorAll('.categories')[0]
         faireDisparaitreAutresClasses()
         faireApparaitreClasse(recupererBouton1)
+        effacerBoutonsCategories()
         return tabCouleurs;
     }else if(categorie==='animaux'){
         faireDisparaitreAutresClasses()
         let recupererBouton2=document.querySelectorAll('.categories')[1]
         faireApparaitreClasse(recupererBouton2)
+        effacerBoutonsCategories()
         return tabAnimaux;
     }else if(categorie==='objets'){
         let recupererBouton2=document.querySelectorAll('.categories')[2]
         faireDisparaitreAutresClasses()
         faireApparaitreClasse(recupererBouton2)
+        effacerBoutonsCategories()
         return tabObjet;
     }
 }
@@ -139,14 +147,27 @@ function recupererMot(combienDeMots,motsAleatoires){
         if(inputSaisieParUtilisteur.value===motsAleatoires[i]){    
            recupererSpanContenu[i].textContent=inputSaisieParUtilisteur.value;
            compteurGagner++;
+       
 
            if(compteurGagner===combienDeMots){
-                compteur=10;
+               
+           
+            // alert(compteurGagner)
+                // compteur=10;
                 faireDisparaitreDivLettreInputActive();
                 effacerElement();
                 supprimerCreerDivCompteur()
                 effacerH2();
-            perduOuGagner('gagner')
+                effacerBoutonsCategories();
+                perduOuGagner('gagner');
+                setTimeout(function(){
+                    window.location.reload();
+                   
+                },1500)
+               
+             
+                // window.location.reload();
+                // faireApparaitreBoutonsCategories()
            }
          
         }    
@@ -259,6 +280,16 @@ function effacerPerdu(){
     if(nouveauParagraphePerdu!==null){
         nouveauParagraphePerdu.remove();
     }
+}
+
+function faireApparaitreBoutonsCategories(){
+    choisirBoutons.classList.remove('choisirBoutonsActive')
+    choisirBoutons.classList.add('choisirBoutons')
+}
+
+function effacerBoutonsCategories(){
+    choisirBoutons.classList.remove('choisirBoutons')
+    choisirBoutons.classList.add('choisirBoutonsActive')
 }
 
 
